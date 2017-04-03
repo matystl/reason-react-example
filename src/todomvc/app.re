@@ -158,9 +158,16 @@ module Top = {
             />
             <ul className="todo-list"> (ReactRe.arrayToElement (Array.of_list todoItems)) </ul>
           </section>;
+      /*let maty = Maty.wrapProps {count: 10, count2:20} children::[] ();*/
+      module PartialyAppliedListItem = {
+        let createElement = Simple.ListItem.createElement count::12;
+      };
+      module ListWithItem = Maty.List PartialyAppliedListItem;
+/**/
+      /*  <Maty1 count2=30 />*/
       <div>
         <header className="header">
-          <h1> (ReactRe.stringToElement "todos") </h1>
+          <h1> (ReactRe.stringToElement "maty") </h1>
           <input
             className="new-todo"
             placeholder="What needs to be done?"
@@ -169,9 +176,8 @@ module Top = {
             onChange=(updater handleChange)
             autoFocus=Js.true_
           />
-        </header>
-        main
-        footer
+          <ListWithItem listContent=[1, 2, 3, 4] />        
+        </header>      
       </div>
     };
   };
